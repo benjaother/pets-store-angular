@@ -1,0 +1,25 @@
+<div>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Menu</a>
+      <div class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a routerLink="pets" class="nav-link">Pets</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Pet actions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a routerLink="admin/pets/create" class="dropdown-item" href="#">Create</a>
+            <a routerLink="pets" class="dropdown-item" href="#">List</a>
+          </div>
+        </li>
+        <li *ngIf="_userService.validaSesion()" class="nav-item">
+          <a (click)="logout()" class="nav-link">Logout</a>
+        </li>
+      </div>
+    </nav>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+</div>
