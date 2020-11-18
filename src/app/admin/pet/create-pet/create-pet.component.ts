@@ -37,8 +37,10 @@ export class CreatePetComponent implements OnInit {
      * Rellena los tags del formulario
      */
     this._tagService.getAll().subscribe((data: any) => {
-      if (data.ok)
+      if (data.ok) {
         this.tags = data.tags;
+        this.petForm.get('tag').setValue(this.tags[0]);
+      }
 
       console.log(data);
     }, error => {
@@ -49,8 +51,10 @@ export class CreatePetComponent implements OnInit {
      * Rellena las categorias del formulario
      */
     this._categoryService.getAll().subscribe((data: any) => {
-      if (data.ok) 
+      if (data.ok) {
         this.categories = data.categories;
+        this.petForm.get('category').setValue(this.categories[0]);
+      }
 
       console.log(data);
     }, error => {
